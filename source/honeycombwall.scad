@@ -1,5 +1,5 @@
 /**
-* Honeycombwall.scad
+* honeycombwall.scad
 *
 * @copyright Didier MATHIEU , 2022
 * @license https://opensource.org/licenses/lgpl-3.0.html
@@ -14,26 +14,26 @@
 /**
 *   three arguments 
 *   @size : Vectors [x,y,z]
-*   @radius : Diameter of the circle that defines a hexagon
+*   @diameter : Diameter of the circle that defines a hexagon
 *   @border : [x,y] 
 *     
 **/
 
 module HoneycombWall (
         size=[],
-        radius = 100,
+        diameter = 100,
         border = [10,10],
     ) {
         
-    L = radius;
+    L = diameter;
     width  =  size.x;  
     height =  size.y; 
     depth = size.z;    
         
     l = L/2;
-    H = radius*sqrt(3)/2;
+    H = L*sqrt(3)/2;
     h = H/2;
-    e = radius *0.10;
+    e = L *0.10;
   
    // alculates the number of hexagons     
     nb_x = round (((2*width)/((3*l)+(2*e)))+1) + 1;
@@ -50,13 +50,13 @@ module HoneycombWall (
     
     
     difference () {        
-        cube ([width,height,size.z]);
+        cube ([width,height,depth]);
         for (i = [0:nb_x -1])
             for (j = [0:nb_y -1]) {
                 DX= (i * ((3 * l/2) + e)) - l;
                 DY = (j * (2*h+e)  + (i%2 * (h+(e/2)))) -h ;
                 translate ([DX,DY,0])
-                cylinder (r=l,h=size.z,$fn=6);
+                cylinder (r=l,h=depth,$fn=6);
             }
         }
         
@@ -73,4 +73,4 @@ module HoneycombWall (
 //raduis = 50;
 //size =[300,550,2];
 //border = [size.x*0.05,size.y*0.05];
-//HoneyWall (size=size,radius = raduis,border=border);
+//HoneycombWall (size=size,diameter = raduis,border=border);
