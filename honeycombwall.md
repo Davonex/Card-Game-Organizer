@@ -9,14 +9,14 @@ Table of Contents
 =================
 * [Hexagone](#hex)
 * [Map](#map)
-* [Wall](#map)
+* [Wall](#wall)
 
 
 ## Create a simple Hexagone <a name="hex"></a>
 
 With only the diameter of the hexagone , we can dranw it 
 
-![image](images/hex.png) {width:50px;}
+![image](images/hex.png) 
 
 
 ``` OPENSCAD
@@ -30,11 +30,41 @@ With only the diameter of the hexagone , we can dranw it
     cylinder (r=l,h=size.z,$fn=6);
 ``` 
 
-## Create a map with hexagons 
+## Create a map with hexagons <a name="map"></a>
 
 
 ![image](images/map.png)
 
 
 
+We start  by define the numbers of hexagonsand the spacing between each hexagon :
+* nb_x => number of coluns.
+* nb_y => number of row.
+* spacing => 10% of the diameter.
 
+``` OPENSCAD
+nb_x = 4;
+nb_y = 3;   
+
+spacing = L * 0,10;
+
+```
+
+now we can make a loop to draw each hexagone and set DX and DY to translate the hex in each loop.
+
+``` OPENSCAD
+for (i = [0:nb_x -1])
+    for (j = [0:nb_y -1]) {
+        DX= (i * ((3 * l/2) + e));
+        DY = (j * (2*h+e)  + (i%2 * (h+(e/2))));
+        translate ([DX,DY,0])
+        cylinder (r=l,h=depth,$fn=6);
+    }
+```
+
+
+
+
+
+
+## Create a wall with a map <a name="wall"></a>
