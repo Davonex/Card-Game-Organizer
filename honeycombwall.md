@@ -33,9 +33,6 @@ With only the diameter of the hexagone , we can dranw it
     cylinder (r=l,h=size.z,$fn=6);
 ``` 
 
-**The Cauchy-Schwarz Inequality**
-
-$$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
 
 ## Create a map with hexagons <a name="map"></a>
 
