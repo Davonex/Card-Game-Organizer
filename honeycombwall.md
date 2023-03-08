@@ -25,6 +25,9 @@ With only the diameter of the hexagone , we can dranw it
 
     L = diameter;
     l = L/2;
+    
+    h = Sin(60) * L/2
+    $$ h = { \sqrt{3} \over 2} $$
  
 
     cylinder (r=l,h=size.z,$fn=6);
