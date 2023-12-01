@@ -1,19 +1,16 @@
 # Card-Game-Organizer
 Card Game Organizer like Dominion, thunderstone, Magic Gathering , etc ?
 
---- 
-title : HoneyComb
-page_type : article
-# I talked about creating a honneycomb in Boolean operations. the goal is to build with 3D printer many objet as box to save material 
----
-
-
 Table of Contents
 =================
 1 Honeycomwall
 1.1 [Hexagone](#hex)
 1.2 [Map](#map)
 1.3 [Wall](#wall)
+
+# Honeycombwall Libray
+
+I talked about creating a honneycomb in Boolean operations. the goal is to build with 3D printer many objet as box to save material
 
 
 ## Create a simple Hexagone <a name="hex"></a>
